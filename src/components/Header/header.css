@@ -1,0 +1,26 @@
+header {
+    background-color: #000;
+    color: white;
+    width: 100%;
+    height: 6rem;
+
+    padding: 0 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+header nav .favoritos {
+    background-color: aliceblue;
+    color: #000;
+    padding: 0.5rem 1.4rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
