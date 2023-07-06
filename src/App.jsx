@@ -1,10 +1,12 @@
 // Funcionalidades:
 import { BrowserRouter } from "react-router-dom";
-import { AppRoutes } from "./routes";
 
 // Componentes:
 import { Header } from "./components/Header";
+import { AppRoutes } from "./routes";
 
+// Estilo:
+import './styles/index.css';
 
 
 export default function App() {
