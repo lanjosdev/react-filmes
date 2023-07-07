@@ -7,10 +7,12 @@ import './header.css';
 export function Header() {
     return (
         <header>
-            <Link className='logo' to="/">Prime Flix</Link>
-            <nav>
-                <NavLink className='favoritos' to="/favoritos">Meus filmes</NavLink>
-            </nav>
+            <div className="grid">
+                <Link className='logo' to="/">Prime Flix</Link>
+                <nav>
+                    <NavLink className='favoritos' to="/favoritos">Meus filmes</NavLink>
+                </nav>
+            </div>
         </header>
     )
 }

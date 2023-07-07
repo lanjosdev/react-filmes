@@ -48,6 +48,13 @@ export default function Filme() {
               <div className="text">
                 <h2>Sinopse</h2>
                 <p>{filme.overview}</p>
+
+                <h2>Genero:</h2>
+                <div className="generos">
+                  {filme.genres.map((genero)=>(
+                    <span className="genero">{genero.name}</span>
+                  ))}
+                </div>
               </div>
               <div className="poster">
                 <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={`Capa do filme ${filme.title}`} />

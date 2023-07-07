@@ -15,6 +15,7 @@
 .container-filme .info-filme {
     display: flex;
     justify-content: space-between;
+    gap: 1rem
 }
 
 .container-filme .info-filme .text {
@@ -22,6 +23,22 @@
 }
 .container-filme .info-filme .text h2 {
     margin-bottom: 1.5rem;
+}
+.container-filme .info-filme .text p:not(:last-child) {
+    margin-bottom: 2rem;
+}
+.container-filme .info-filme .text .generos {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* align-items: flex-start; */
+}
+.container-filme .info-filme .text .generos .genero {
+    background-color: #949292;
+    color: var(--white);
+    font-weight: 400;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
 }
 
 .container-filme .info-filme .poster {
@@ -45,12 +62,6 @@
 
 @media screen and (max-width: 670px) {
     .container-filme .info-filme {
-        gap: 4rem;
-    }
-}
-
-@media screen and (max-width: 510px) {
-    .container-filme .info-filme {
         flex-direction: column;
         gap: 3rem;
         align-items: center;
@@ -58,5 +69,11 @@
 
     .container-filme .info-filme .poster {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container-filme {
+        padding: 4rem 0;
     }
 }

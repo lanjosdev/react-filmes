@@ -24,6 +24,7 @@ ul, ol, li {
 }
 /* RESET */
 
+
 /* GLOBAL */
 :root {
   --preto: #000;
@@ -32,11 +33,19 @@ ul, ol, li {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* Pra usar rem divisivel por10*/
+}
+@media screen and (max-width: 480px) {
+  html {
+      font-size: 55%;
+  }
+  /* h1 {
+      font-size: 3.637rem; Pra manter h1 em 32px/
+  } */
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.6rem; /* Pra garantir q o padrao seja 16px no navegador*/
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -45,12 +54,19 @@ body {
 }
 /* GLOBAL */
 
+
 /* GRID */
 .grid {
   width: 100%;
-  max-width: 1246px;
+  max-width: 1024px;
   
   padding: 0 20px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+  .grid {
+    padding: 0 15px;
+  }  
 }
 /* GRID */
