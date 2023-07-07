@@ -1,5 +1,6 @@
+@import '../../styles/global.scss';
+
 .container-filme {
-    /* background-color: aqua; */
     padding: 5rem 0;
 }
 
@@ -15,7 +16,7 @@
 .container-filme .info-filme {
     display: flex;
     justify-content: space-between;
-    gap: 1rem
+    gap: 1.2rem
 }
 
 .container-filme .info-filme .text {
@@ -34,8 +35,8 @@
     /* align-items: flex-start; */
 }
 .container-filme .info-filme .text .generos .genero {
-    background-color: #949292;
-    color: var(--white);
+    background-color: $gray;
+    color: #fff;
     font-weight: 400;
     padding: 0.3rem 0.7rem;
     border-radius: 5px;
@@ -50,6 +51,39 @@
 }
 .container-filme .info-filme .poster span {
     font-weight: 700;
+}
+
+.info-filme .text .area-butoes {
+    margin-top: 3rem;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+
+    button, a {
+        width: 100%;
+        background-color: #F0F0F0;
+        padding: 1rem 1.2rem;
+        border-radius: 5px;
+
+        font-size: 1.8rem;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+
+        transition: all .3s;
+    }
+    button {
+        background-color: $azul;
+        color: $white;
+    }
+    button:hover {
+        background-color: #6b9ddd;
+        color: $preto;
+    }
+    a:hover {
+        background-color: $gray;
+        color: $white;
+    }
 }
 
 

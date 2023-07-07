@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import api from '../../services/api';
 
 // Estilo:
-import './home.css';
+import './home.scss';
 
 /* URL DA API (desconsiderando a base): 
 movie/now_playing?api_key=28fc232cc001c31e8a031f419d0a14ca&language=pt-BR

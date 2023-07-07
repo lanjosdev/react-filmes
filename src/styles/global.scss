@@ -26,11 +26,10 @@ ul, ol, li {
 
 
 /* GLOBAL */
-:root {
-  --preto: #000;
-  --white: #F0F8FF;
-  --azul: #116FEB;
-}
+$preto: #000;
+$white: #F0F8FF;
+$azul: #116FEB;
+$gray: #6e6e6ed5;
 
 html {
   font-size: 62.5%; /* Pra usar rem divisivel por10*/
@@ -59,11 +58,10 @@ body {
 .grid {
   width: 100%;
   max-width: 1024px;
+  margin: 0 auto;
   
   padding: 0 20px;
-  margin: 0 auto;
 }
-
 @media screen and (max-width: 480px) {
   .grid {
     padding: 0 15px;

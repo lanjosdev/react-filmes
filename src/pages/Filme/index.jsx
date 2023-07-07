@@ -1,16 +1,17 @@
 // Funcionalidades:
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // service:
 import api from "../../services/api";
 
 // Estilo:
-import './filme.css'
+import './filme.scss'
 
 
 export default function Filme() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [filme, setFilme] = useState({});
     const [loading, setLoading] = useState(true);
 
@@ -29,16 +30,34 @@ export default function Filme() {
         .catch(()=>{
           console.log('FILME NÃO ENCONTRADO');
           setLoading(false);
+          navigate('../NotFound');
         })
       }
       carregaFilme();
-    }, [])
+    }, [navigate, id]);
+
+    function onSalvarFilme() {
+      const minhaLista = sessionStorage.getItem('primeflix');
+      let filmesSalvos = JSON.parse(minhaLista) || [];
+
+      const temFilme = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === filme.id); // true OR false
+
+      if(temFilme) {
+        alert('ESSE FILME JÁ ESTÁ SALVO!');
+        return;
+      } else {
+        filmesSalvos.push(filme);
+        sessionStorage.primeflix = JSON.stringify(filmesSalvos);
+        alert('SALVOOUU');
+      }
+    }
+
 
     return (
       <main class='container-filme'>
         <div className="grid">
           {loading ? (
-            <h2>Carregando...</h2>
+            <h2>Carregando Detalhes do Filme...</h2>
           ) : (
             <>
             <h1>{filme.title}</h1>
@@ -54,6 +73,12 @@ export default function Filme() {
                   {filme.genres.map((genero)=>(
                     <span className="genero">{genero.name}</span>
                   ))}
+                </div>
+
+                <div className="area-butoes">
+                  <button onClick={onSalvarFilme}>Salvar</button>
+                  <a href={`https://www.youtube.com/results?search_query=${filme.title} trailer`} target="blank" rel="noreferrer">Trailer
+                  </a>
                 </div>
               </div>
               <div className="poster">

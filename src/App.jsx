@@ -5,8 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Header } from "./components/Header";
 import { AppRoutes } from "./routes";
 
-// Estilo:
-import './styles/index.css';
+// Estilo Global:
+import './styles/global.scss';
 
 
 export default function App() {

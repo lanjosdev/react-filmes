@@ -2,7 +2,7 @@
 import { NavLink, Link } from 'react-router-dom';
 
 // Estilo:
-import './header.css';
+import './header.scss';
 
 export function Header() {
     return (

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 // Estilo:
-import './notfound.css'
+import './notfound.scss'
 
 
 export default function NotFound() {

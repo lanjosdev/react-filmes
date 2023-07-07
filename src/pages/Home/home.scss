@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .container-home {
     padding: 5rem 2rem;
 
@@ -39,8 +41,8 @@
     border-radius: 10px 10px 0 0;
 }
 .container-home .filmes-list article a {
-    background-color: #116FEB;
-    color: white;
+    background-color: $azul;
+    color: $white;
     font-size: 2rem;
 
     padding: 1rem 0;
