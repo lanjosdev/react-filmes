@@ -10,7 +10,12 @@ export default function Favoritos() {
 
   useEffect(()=>{
     const filmesSalvos = localStorage.primeflix;
-    setMeusFilmes(JSON.parse(filmesSalvos) || []); //parse conver string > array/JSON. Se não tiver nada "meusFilmes" recebe uma [] vazia
+    if(typeof filmesSalvos === 'undefined') {
+      setMeusFilmes([]);
+    } else {
+      setMeusFilmes(JSON.parse(filmesSalvos));
+    }
+    // setMeusFilmes(JSON.parse(filmesSalvos) || []); //parse conver string > array/JSON. Se não tiver nada "meusFilmes" recebe uma [] vazia
   }, []);
 
   function excluirFilme(id) {
@@ -26,7 +31,10 @@ export default function Favoritos() {
       <div className="grid">
         <h1>Meus Filmes</h1>
 
-        {meusFilmes.length === 0 && <span>Você não possui nenhum filme salvo!</span>}
+        {meusFilmes.length === 0 && 
+          <span>Você não possui nenhum filme salvo!</span>
+        }
+
         <ul>
           {meusFilmes.map((filme)=>(
             <li key={filme.id}>
