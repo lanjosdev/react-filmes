@@ -1,6 +1,7 @@
 // Funcionalidades:
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // Estilo:
 import styles from './favoritos.module.scss';
@@ -23,6 +24,7 @@ export default function Favoritos() {
 
     setMeusFilmes(filtroFilmes);
     localStorage.primeflix = JSON.stringify(filtroFilmes);
+    toast.success('Filme removido com sucesso!');
   }
 
 

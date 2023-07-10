@@ -1,6 +1,7 @@
 // Funcionalidades:
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // service:
 import api from "../../services/api";
@@ -28,7 +29,6 @@ export default function Filme() {
           setLoading(false);
         })
         .catch(()=>{
-          console.log('FILME NÃO ENCONTRADO');
           setLoading(false);
           navigate('../NotFound');
         })
@@ -43,12 +43,12 @@ export default function Filme() {
       const temFilme = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === filme.id); // true OR false
 
       if(temFilme) {
-        alert('ESSE FILME JÁ ESTÁ SALVO!');
+        toast.warn('Esse filme já está salvo!');
         return;
       } else {
         filmesSalvos.push(filme);
         localStorage.primeflix = JSON.stringify(filmesSalvos);
-        alert('SALVOOUU');
+        toast.success("Filme salvo com sucesso!");
       }
     }
 
