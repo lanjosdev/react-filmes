@@ -37,7 +37,7 @@ export default function Filme() {
     }, [navigate, id]);
 
     function onSalvarFilme() {
-      const minhaLista = sessionStorage.getItem('primeflix');
+      const minhaLista = localStorage.getItem('primeflix');
       let filmesSalvos = JSON.parse(minhaLista) || [];
 
       const temFilme = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === filme.id); // true OR false
@@ -47,7 +47,7 @@ export default function Filme() {
         return;
       } else {
         filmesSalvos.push(filme);
-        sessionStorage.primeflix = JSON.stringify(filmesSalvos);
+        localStorage.primeflix = JSON.stringify(filmesSalvos);
         alert('SALVOOUU');
       }
     }
