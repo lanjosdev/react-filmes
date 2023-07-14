@@ -10,7 +10,7 @@ export function Header() {
             <div className="grid">
                 <Link className='logo' to="/">Prime Flix</Link>
                 <nav>
-                    <NavLink className='favoritos' to="/favoritos">Meus filmes</NavLink>
+                    <NavLink className='favoritos' to="/favoritos">Minha Lista</NavLink>
                 </nav>
             </div>
         </header>

@@ -32,7 +32,7 @@ export default function Favoritos() {
   return (
     <main className={styles.meusFilmes}>
       <div className="grid">
-        <h1>Meus Filmes</h1>
+        <h1>Minha Lista</h1>
 
         {meusFilmes.length === 0 && 
           <span>Você não possui nenhum filme salvo!</span>
