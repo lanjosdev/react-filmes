@@ -15,8 +15,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <ToastContainer autoClose={3000} />
+
       <Header />
       <AppRoutes />
+      
     </BrowserRouter>
   );
 }

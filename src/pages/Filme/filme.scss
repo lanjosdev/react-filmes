@@ -20,6 +20,7 @@
 }
 
 .container-filme .info-filme .text {
+    width: 100%;
     max-width: 70rem;
 }
 .container-filme .info-filme .text h2 {
@@ -79,6 +80,9 @@
     button:hover {
         background-color: #6b9ddd;
         color: $preto;
+    }
+    button.btn-delete {
+        background-color: rgb(214, 38, 38);
     }
     a:hover {
         background-color: $gray;

@@ -24,6 +24,7 @@ export default function Favoritos() {
 
     setMeusFilmes(filtroFilmes);
     localStorage.primeflix = JSON.stringify(filtroFilmes);
+    
     toast.success('Filme removido com sucesso!');
   }
 

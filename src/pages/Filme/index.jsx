@@ -1,5 +1,5 @@
 // Funcionalidades:
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -15,6 +15,13 @@ export default function Filme() {
     const navigate = useNavigate();
     const [filme, setFilme] = useState({});
     const [loading, setLoading] = useState(true);
+
+    const [filmeSalvo, setFilmeSalvo] = useState(false);
+
+    let listaLocal = localStorage.getItem('primeflix');
+    let filmesSalvos = useMemo(()=> JSON.parse(listaLocal) || [], [listaLocal]);
+    // console.log(filmesSalvos);
+
 
     useEffect(()=> {
       async function carregaFilme() {
@@ -36,20 +43,31 @@ export default function Filme() {
       carregaFilme();
     }, [navigate, id]);
 
-    function onSalvarFilme() {
-      const minhaLista = localStorage.getItem('primeflix');
-      let filmesSalvos = JSON.parse(minhaLista) || [];
+    useEffect(()=> {
+      function checkFilmeSalvo() {
+        const temFilme = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === filme.id); // true OR false
 
-      const temFilme = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === filme.id); // true OR false
-
-      if(temFilme) {
-        toast.warn('Esse filme já está salvo!');
-        return;
-      } else {
-        filmesSalvos.push(filme);
-        localStorage.primeflix = JSON.stringify(filmesSalvos);
-        toast.success("Filme salvo com sucesso!");
+        setFilmeSalvo(temFilme);
       }
+      checkFilmeSalvo();
+    }, [filme, filmesSalvos]);  
+
+
+
+    function onSalvarFilme() {       
+      filmesSalvos.push(filme);
+      localStorage.primeflix = JSON.stringify(filmesSalvos);
+
+      toast.success("Filme salvo com sucesso!");
+      setFilmeSalvo(true);
+    }
+
+    function onRemoverFilme(id) {
+      let filtroFilmes = filmesSalvos.filter((filme)=> (filme.id !== id));
+      localStorage.primeflix = JSON.stringify(filtroFilmes);
+    
+      toast.success('Filme removido com sucesso!');
+      setFilmeSalvo(false);
     }
 
 
@@ -76,7 +94,11 @@ export default function Filme() {
                 </div>
 
                 <div className="area-butoes">
-                  <button onClick={onSalvarFilme}>Salvar</button>
+                  {filmeSalvo ? (
+                    <button className="btn-delete" onClick={()=> onRemoverFilme(filme.id)}>Remover da Lista</button>
+                  ): (
+                    <button onClick={onSalvarFilme}>Salvar</button>
+                  )}
                   <a href={`https://www.youtube.com/results?search_query=${filme.title} trailer`} target="blank" rel="noreferrer">Trailer
                   </a>
                 </div>

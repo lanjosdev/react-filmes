@@ -13,7 +13,6 @@ export function AppRoutes() {
             {/* Filmes */}
             <Route path="/" element={ <Home/> }/>
             <Route path="/filme/:id" element={ <Filme/> }/>
-
             {/* Salvos */}
             <Route path="/favoritos" element={ <Favoritos /> } />
 
